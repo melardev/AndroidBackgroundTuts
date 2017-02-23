@@ -41,24 +41,27 @@
             android:enabled="true"
             android:exported="true" />
 
+        <service
+            android:name=".ActivityJobScheduler$JobSchedulerService"
+            android:enabled="true"
+            android:exported="true" />
+
         <receiver
             android:name=".AlarmReceiver"
             android:enabled="true"
             android:exported="false">
-
-            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
                 <action android:name="android.intent.action.TIMEZONE_CHANGED" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
-            -->
         </receiver>
 
         <activity android:name=".AlarmTriggeredActvity" />
         <activity android:name=".ActivityAsyncTask" />
         <activity android:name=".ActivityJobScheduler" />
-        <activity android:name=".ActivityAlarm"></activity>
+        <activity android:name=".ActivityAlarm" />
+        <activity android:name=".ActivityAlarmReSchedule" />
     </application>
 
 </manifest>

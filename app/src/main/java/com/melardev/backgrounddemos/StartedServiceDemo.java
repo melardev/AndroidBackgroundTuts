@@ -79,7 +79,7 @@ public class StartedServiceDemo extends Service {
     }
 
     class RunnableWorker implements Runnable {
-
+        @Override
         public void run() {
 
             while (!shouldStop) {

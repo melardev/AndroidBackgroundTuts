@@ -27,6 +27,12 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="testAlarmReschedule"
+        android:text="test alarm rescheduling" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="testService"
         android:text="Test Service" />
 
@@ -35,4 +41,6 @@
         android:layout_height="wrap_content"
         android:onClick="testJobScheduler"
         android:text="test JobScheduler API" />
+
+
 </LinearLayout>

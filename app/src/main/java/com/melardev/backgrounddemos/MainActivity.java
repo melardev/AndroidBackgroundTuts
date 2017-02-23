@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.app.job.JobInfo;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -47,5 +48,16 @@ public class MainActivity extends AppCompatActivity {
     private void startDemo(Class activity) {
         Intent i = new Intent(this, activity);
         startActivity(i);
+    }
+
+    public void testAlarmReschedule(View view) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+
+        PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0,
+                new Intent(getApplicationContext(), AlarmTriggeredActvity.class), 0);
+        ((AlarmManager) getSystemService(Context.ALARM_SERVICE)).set(AlarmManager.RTC_WAKEUP, calendar.getTime().getTime(), pi);
     }
 }
