@@ -32,19 +32,17 @@
             android:enabled="true"
             android:exported="true" />
         <service
-            android:name=".IntentSerivceDemo"
+            android:name=".IntentServiceDemo"
             android:exported="false" />
-
         <service
             android:name=".AlarmService"
             android:enabled="true"
             android:exported="true" />
-
         <service
             android:name=".JobSchedulerService"
-            android:permission="android.permission.BIND_JOB_SERVICE"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <receiver
             android:name=".AlarmReceiver"
@@ -62,6 +60,9 @@
         <activity android:name=".ActivityJobScheduler" />
         <activity android:name=".ActivityAlarm" />
         <activity android:name=".ActivityAlarmReSchedule" />
+        <activity android:name=".ActivityIntentService" />
+        <activity android:name=".ActivityHandler" />
+        <activity android:name=".ActivityHandlerThread"></activity>
     </application>
 
 </manifest>

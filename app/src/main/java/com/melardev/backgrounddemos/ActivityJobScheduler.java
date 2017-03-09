@@ -1,5 +1,6 @@
 package com.melardev.backgrounddemos;
 
+import android.annotation.TargetApi;
 import android.app.job.JobInfo;
 import android.app.job.JobParameters;
 import android.app.job.JobScheduler;
@@ -16,19 +17,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 
 public class ActivityJobScheduler extends AppCompatActivity {
 
     private static final int MY_JOB_ID = 1;
     public static final String WEB_SERVICE_URL = "web_service_url";
     private JobScheduler mJobScheduler;
+    private TextView txtJobInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acitivity_job_scheduler);
-
+        txtJobInfo = (TextView) findViewById(R.id.txtJobInfo);
         mJobScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
     }
 
@@ -38,8 +43,9 @@ public class ActivityJobScheduler extends AppCompatActivity {
         //Scheduler uses UTC times for all its internal operations. This ensures a continual flow of operation without breaks or repetitions regardless of any changes in local time.
         JobInfo.Builder builder = new JobInfo.Builder(MY_JOB_ID, new ComponentName(this, JobSchedulerService.class));//JobSchedulerService.class.getName()));
         builder.setPersisted(true); //persist across device reboots
-        builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED); // only if wifi avaiblable so they are not using bandwith
         builder.setPeriodic(5000); //run once each 5 seconds
+
+        builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED); // only if wifi avaiblable so they are not using bandwith
         builder.setRequiresDeviceIdle(false); // run not only if the device is idle
         builder.setRequiresCharging(false); // run not only if the device is charging
 
@@ -66,4 +72,19 @@ public class ActivityJobScheduler extends AppCompatActivity {
         mJobScheduler.cancel(MY_JOB_ID);
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public void listJobs(View view) {
+        List<JobInfo> listJobs = mJobScheduler.getAllPendingJobs();
+
+        String jobs = "";
+        for (JobInfo job : listJobs) {
+            jobs += "Id " + job.getId();
+            jobs += "\nName " + job.getService().getClassName();
+            jobs += "\nNetType " + job.getNetworkType();
+            jobs += "\nPersisted " + job.isPersisted();
+            jobs += "\nBackOff " + job.getBackoffPolicy();
+        }
+
+        txtJobInfo.setText(jobs);
+    }
 }

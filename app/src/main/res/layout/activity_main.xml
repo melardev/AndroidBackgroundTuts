@@ -39,8 +39,26 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="testIntentService"
+        android:text="Test IntentService" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="testJobScheduler"
         android:text="test JobScheduler API" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="testHandler"
+        android:text="test Handler" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="testHandlerThread"
+        android:text="test HandlerThread" />
 
 
 </LinearLayout>

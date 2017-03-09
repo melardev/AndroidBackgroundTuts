@@ -60,4 +60,16 @@ public class MainActivity extends AppCompatActivity {
                 new Intent(getApplicationContext(), AlarmTriggeredActvity.class), 0);
         ((AlarmManager) getSystemService(Context.ALARM_SERVICE)).set(AlarmManager.RTC_WAKEUP, calendar.getTime().getTime(), pi);
     }
+
+    public void testIntentService(View view) {
+        startDemo(ActivityIntentService.class);
+    }
+
+    public void testHandler(View view) {
+        startDemo(ActivityHandler.class);
+    }
+
+    public void testHandlerThread(View view) {
+        startDemo(ActivityHandlerThread.class);
+    }
 }
