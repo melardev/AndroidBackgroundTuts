@@ -33,8 +33,8 @@ public class IntentServiceDemo extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        boolean isCurrentThread = Looper.getMainLooper() == Looper.myLooper();
-        Log.d("TAG", "this is " + (isCurrentThread ? "" : " not ") + " the main thread");
+        boolean isMainThread = Looper.getMainLooper() == Looper.myLooper();
+        Log.d("TAG", "this is " + (isMainThread ? "" : " not ") + " the main thread");
         if (intent != null) {
             final String action = intent.getAction();
             ResultReceiver receiver = (ResultReceiver) intent.getParcelableExtra(EXTRA_RECEIVER);

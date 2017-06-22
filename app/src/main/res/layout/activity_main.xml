@@ -60,5 +60,11 @@
         android:onClick="testHandlerThread"
         android:text="test HandlerThread" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="testAA"
+        android:text="Android Annotations" />
+
 
 </LinearLayout>

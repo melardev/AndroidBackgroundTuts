@@ -72,4 +72,10 @@ public class MainActivity extends AppCompatActivity {
     public void testHandlerThread(View view) {
         startDemo(ActivityHandlerThread.class);
     }
+
+    public void testAA(View view) {
+        //startDemo(ActivityAsyncAnnotations.class); IllegalStateException!
+        startDemo(ActivityAsyncAnnotations_.class);
+        //ActivityAsyncAnnotations_.intent(this).start();
+    }
 }

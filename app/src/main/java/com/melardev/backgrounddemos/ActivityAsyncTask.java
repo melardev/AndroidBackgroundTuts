@@ -30,6 +30,11 @@ public class ActivityAsyncTask extends AppCompatActivity {
         new ImageAsyncDownloader().execute("http://as.com/img/motor/formula_1/2016/coches/858x200/mclaren.png");
     }
 
+    public void executeAsyncTasksInParallel(){
+        ImageAsyncDownloader async = new ImageAsyncDownloader();
+        async.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "http://as.com/img/motor/formula_1/2016/coches/858x200/mclaren.png");
+    }
+
     private class ImageAsyncDownloader extends AsyncTask<String, Void, Bitmap> {
 
         @Override

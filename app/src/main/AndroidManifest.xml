@@ -62,7 +62,14 @@
         <activity android:name=".ActivityAlarmReSchedule" />
         <activity android:name=".ActivityIntentService" />
         <activity android:name=".ActivityHandler" />
-        <activity android:name=".ActivityHandlerThread"></activity>
+        <activity android:name=".ActivityHandlerThread" />
+
+        <service
+            android:name=".BoundService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".ActivityAsyncAnnotations_"></activity>
     </application>
 
 </manifest>

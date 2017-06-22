@@ -16,10 +16,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/txtIntentService"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
     <Button
         android:layout_width="wrap_content"
@@ -32,4 +28,9 @@
         android:layout_height="wrap_content"
         android:onClick="loadTextClick"
         android:text="loadText" />
+
+    <TextView
+        android:id="@+id/txtIntentService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

@@ -39,6 +39,7 @@ public class ActivityHandler extends AppCompatActivity {
         imgHandler = (ImageView) findViewById(R.id.imgHandler);
 
         /*
+        //mHandler = new Handler() {...}
         mHandler = new Handler(Looper.getMainLooper()) {
             @Override
             public void handleMessage(Message msg) {
@@ -81,7 +82,7 @@ public class ActivityHandler extends AppCompatActivity {
         @Override
         public boolean handleMessage(Message msg) {
 
-            //Called when we receive a message
+                      //Called when we receive a message
             DownloadTask task = (DownloadTask) msg.obj;
             switch (msg.what) {
                 case DOWNLOAD_CONNECTING:
@@ -128,6 +129,7 @@ public class ActivityHandler extends AppCompatActivity {
             //Sending a Message
             Message msg = myHandler.obtainMessage(status, this);
             msg.sendToTarget();
+            //myHandler.sendMessage(msg);
 
             //Sending A Runnable Object from Background Thread
             myHandler.post(new Runnable() {
