@@ -69,7 +69,10 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".ActivityAsyncAnnotations_"></activity>
+        <activity android:name=".ActivityAsyncAnnotations_" />
+        <activity android:name=".ActivityAsyncTaskLoader" />
+        <activity android:name=".ActivityBoundService" />
+        <activity android:name=".ActivityThread"></activity>
     </application>
 
 </manifest>

@@ -78,4 +78,12 @@ public class MainActivity extends AppCompatActivity {
         startDemo(ActivityAsyncAnnotations_.class);
         //ActivityAsyncAnnotations_.intent(this).start();
     }
+
+    public void testThread(View view) {
+        startDemo(ActivityThread.class);
+    }
+
+    public void testBoundService(View view) {
+        startDemo(ActivityBoundService.class);
+    }
 }

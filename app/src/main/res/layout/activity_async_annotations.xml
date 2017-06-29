@@ -17,7 +17,7 @@
         android:id="@+id/btnAACancellable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Make some Async" />
+        android:text="Make some cancelable Async" />
 
     <Button
         android:id="@+id/btnCancelAA"

@@ -46,6 +46,7 @@ public class ActivityAsyncAnnotations extends AppCompatActivity {
 
     @ViewById(R.id.btnCancelAA)
     Button btnCancel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,9 +107,9 @@ public class ActivityAsyncAnnotations extends AppCompatActivity {
         updateUi(result, false);
     }
 
-    //@UiThread(propagation = UiThread.Propagation.REUSE)
+    //@UiThread(propagation = UiThread.Propagation.REUSE) since 3.0
     //REUSE -> if already in main thread, call updateUi(String) directly, otherwise use Handler // FASTER
-    //ENQUEUE -> always call this method from Handler // SLOWER
+    //ENQUEUE -> DEFAULT, always call this method from Handler // SLOWER
     @UiThread
     public void updateUi(String result, boolean andDisableBtnCancel) {
         logThreadInfo("updateUi");
